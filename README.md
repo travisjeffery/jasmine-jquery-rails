@@ -12,9 +12,11 @@ And then execute:
 
     $ bundle
 
-Add this line to your test manifest file:
+Assuming you're using the jasmine gem, in your jasmine.yml have:
 
-    //=require jasmine-jquery
+  src_files:
+    - ...
+    - assets/jasmine-jquery.js
 
 Or directly include at `/assets/jasmine-jquery.js`
 
