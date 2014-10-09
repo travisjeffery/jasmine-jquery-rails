@@ -14,9 +14,11 @@ And then execute:
 
 Assuming you're using the jasmine gem, in your jasmine.yml have:
 
+```
   src_files:
     - ...
     - assets/jasmine-jquery.js
+```
 
 Or directly include at `/assets/jasmine-jquery.js`
 
