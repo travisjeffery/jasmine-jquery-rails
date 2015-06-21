@@ -24,6 +24,50 @@ Or directly include at `/assets/jasmine-jquery.js`
 
 Read about jasmine-jquery [here](http://github.com/velesin/jasmine-jquery)
 
+## Fixtures
+
+Files located in the `spec/javascripts/fixtures` directory are available as fixture. For example, if you put a file named `example_fixture.html.haml` in that path it will be available at the
+`/spec/javascripts/fixtures/example_fixture` URL.
+
+Just mount the following engine in your `config/routes.rb` file
+```ruby
+mount JasmineJqueryRails::Engine => "/spec"
+```
+
+if you don't want to use the namespace `/spec`, please make sure that you change the jasmine path too.
+```js
+jasmine.getStyleFixtures().fixturesPath = 'custom_namespace/javascripts/fixtures';
+```
+or
+```js
+jasmine.getStyleFixtures().fixturesPath = 'custom_namespace/fixtures';
+```
+is also possible.
+
+If you want to use a different fixture path, just add this to your `config/initializers`.
+```ruby
+JasmineJqueryRails.fixture_path = 'my/new/path'
+```
+
+### Fixture example
+
+spec/javascripts/fixtures/example_fixture.html.haml
+```haml
+%h2 Test Fixture
+%p Using fixtures
+```
+
+the fixture can be loaded like this
+```js
+loadFixtures('example_fixture');
+```
+
+You can also load JSON fixtures, e.g. `spec/javascripts/fixtures/json/bar.json`
+```js
+getJSONFixture('bar')
+```
+
+
 ## Contributing
 
 jasmine-jquery-rails and jasmine-jquery are maintained by [Travis Jeffery](http://github.com/travisjeffery)
